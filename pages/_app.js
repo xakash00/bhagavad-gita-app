@@ -1,5 +1,13 @@
 import '@/styles/globals.css'
+import {wrapper} from "../src/redux/store";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+// import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+
+const App=({ Component, pageProps })=> {
+
+  return (
+      <Component {...pageProps} />
+  );
 }
+export default wrapper.withRedux(App)
