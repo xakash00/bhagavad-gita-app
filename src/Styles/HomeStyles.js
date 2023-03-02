@@ -15,13 +15,6 @@ margin-bottom:2rem;
     transform: scale(1.06);
 }
 ` 
-export const Text = styled.div`
-color:${props=>props.color??"#fff"};
-font-size:${props=>props.fsize??"14px"};
-font-family:Montserrat;
-font-weight: ${props=>props.w??400};
-line-height:22px;
-`
 
 export const Margin = styled.div`
 height: 10px;

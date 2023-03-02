@@ -43,8 +43,8 @@ export const NavBtn = styled.button`
 `;
 export const Sidebar = styled.div`
   width: 30%;
-  background-color: #fff !important
-;
+  background-color: #fff !important;
+box-shadow: 0px 0px  7px #ccc ;
   height: 100rem;
   position: fixed;
   left: ${(props) => props.sidebar};
