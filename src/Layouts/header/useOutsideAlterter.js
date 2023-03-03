@@ -11,7 +11,7 @@ const UseOutsideAlerter=({handleClose,outSideClickRef})=>  {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [outSideClickRef]);
 
  
 }

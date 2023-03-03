@@ -15,20 +15,24 @@ import { switchMode } from "@/src/redux/actions/themeAction";
 import { RiSunFill, RiMoonFill } from "react-icons/ri";
 import { Text } from "@/src/Styles/globalStyles";
 import UseResponsive from "./useResponsive";
+import UseOutsideAlerter from "./useOutsideAlterter";
 
 const HeaderLayout = ({ children }) => {
   const mobile = UseResponsive();
   let outSideClickRef = useRef(null);
-  const [sidebar, setSidebar] = useState(false);
+  const sidebar = useSelector(store=>store.sidebarReducer);
+  console.log(sidebar)
   const dispatch = useDispatch();
   const theme = useSelector((store) => store.themeReducer.dark_mode);
 
-  const toggleSidebar = () => setSidebar(!sidebar);
+  const toggleSidebar = () => {
+      dispatch({type:"toggle"})
+  };
 
   useEffect(() => {
     function handleEscapeKey(event) {
       if (event.code === "Escape") {
-        setSidebar(false);
+        dispatch({type:"close"})
       }
     }
     document.addEventListener("keydown", handleEscapeKey);
@@ -36,23 +40,27 @@ const HeaderLayout = ({ children }) => {
   }, []);
 
   return (
-    <>  
+    <>
       <Header>
         {!mobile && (
           <nav className="navbar fixed-top">
             <div className="container-fluid">
               <Link href="/">
-              <HeaderText fsize="25px" w="500">
-                    Example
-                  </HeaderText>
+                <HeaderText
+                  onClick={() => dispatch({ type: "close" })}
+                  fsize="25px"
+                  w="500"
+                >
+                  Example
+                </HeaderText>
               </Link>
               <div className="d-flex align-items-center justify-content-between">
                 <BorderLessButton
-                  color={theme === true ? "#FFDB58" :"#191970" }
+                  color={theme === true ? "#FFDB58" : "#191970"}
                   fsize="1.2rem"
                   onClick={() => dispatch(switchMode())}
                 >
-                  {theme === true ?   <RiSunFill />:<RiMoonFill />}
+                  {theme === true ? <RiSunFill /> : <RiMoonFill />}
                 </BorderLessButton>
               </div>
             </div>
@@ -78,10 +86,10 @@ const HeaderLayout = ({ children }) => {
         )}
         <Sidebar
           ref={outSideClickRef}
-          sidebar={sidebar === true ? "0%" : "-100%"}
+          sidebar={sidebar.isOpen === true ? "0%" : "-100%"}
         >
           <ul
-            onClick={() => setSidebar(false)}
+              onClick={() => dispatch({ type: "toggle" })}
             className="list-group list-group-flush"
           >
             <li className="list-group-item">
