@@ -1,38 +1,20 @@
 import { Width } from "@/src/Styles/globalStyles";
-import { customStyles } from "@/src/Styles/SelectStyles";
-import React from "react";
-import Select from "react-select";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import ChapterList from "./ChapterList";
 
 const Home = () => {
-  const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
+  const data = useSelector((store) => console.log(store));
 
   return (
-    <div className="container">
-      <Width width="60%">
-        <div className="row">
-          <div className="col-6 col-md-6 col-sm-12">
-            <Select
-              styles={customStyles}
-              options={options}
-              components={{ IndicatorSeparator: null }}
-            />
-          </div>
-          <div className="col-6 col-md-6 col-sm-12">
-            <Select
-              styles={customStyles}
-              options={options}
-              components={{ IndicatorSeparator: null }}
-            />
-          </div>
-        </div>
-       
+    <div className="container-fluid">
+      <Width width="80%">
+       <ChapterList/>
+
       </Width>
     </div>
   );
 };
 
 export default Home;
+

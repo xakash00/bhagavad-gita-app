@@ -24,6 +24,7 @@
     "react-select": "^5.7.0",
     "redux": "^4.2.1",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^1.2.2"
+    "redux-saga": "^1.2.2",
+    "super-duper-button": "^0.2.5"
   }
 }

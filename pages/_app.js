@@ -3,22 +3,29 @@ import { wrapper } from "../src/redux/store";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-
+import { ThemeProvider } from "@emotion/react";
+import { ThemeStyled } from "@/src/Styles/globalStyles";
+import { Global, css } from "@emotion/react";
 const App = ({ Component, pageProps }) => {
   const theme = useSelector((store) => store.themeReducer.dark_mode);
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (theme === true) {
-        document.body.style.backgroundColor = "#1919704";
-      } else {
-        document.body.style.backgroundColor = "#fff";
-      }
+
+
+
+  const GlobalStyles = css`
+    body {
+      background-color: ${theme == true ? "#000" : "#fff"};
     }
-  }, [theme]);
-  useEffect(() => { 
-    typeof window !== "undefined" &&
-      require("../node_modules/bootstrap/dist/js/bootstrap.bundle");
-  });
-  return <Component {...pageProps} />;
+  `;
+  const themeObj = {
+    mode: theme,
+  };
+
+  return (
+    <ThemeProvider theme={themeObj}>
+      <Global styles={GlobalStyles} />
+
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
 };
 export default wrapper.withRedux(App);

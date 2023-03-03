@@ -16,6 +16,7 @@ export const customStyles = {
         borderColor: state.isFocused ? "#ffa000" : "#ffa000"
       }
     }),
+    
     option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isSelected ? "#ffa000" : null,
@@ -39,6 +40,7 @@ export const customStyles = {
       svg: {
         fill: "#ffa000"
       }
-    })
+    }),
+    
   };
   

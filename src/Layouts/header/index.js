@@ -4,6 +4,7 @@ import {
   BorderLessButton,
   ChildDiv,
   Header,
+  HeaderText,
   Sidebar,
 } from "../../Styles/HeaderStyle";
 import { useEffect, useState } from "react";
@@ -14,7 +15,6 @@ import { switchMode } from "@/src/redux/actions/themeAction";
 import { RiSunFill, RiMoonFill } from "react-icons/ri";
 import { Text } from "@/src/Styles/globalStyles";
 import UseResponsive from "./useResponsive";
-import UseOutsideAlerter from "./useOutsideAlterter";
 
 const HeaderLayout = ({ children }) => {
   const mobile = UseResponsive();
@@ -42,17 +42,17 @@ const HeaderLayout = ({ children }) => {
           <nav className="navbar fixed-top">
             <div className="container-fluid">
               <Link href="/">
-                <Text className="navbar-brand" fsize="25px" w="500">
-                  Example
-                </Text>
+              <HeaderText fsize="25px" w="500">
+                    Example
+                  </HeaderText>
               </Link>
               <div className="d-flex align-items-center justify-content-between">
                 <BorderLessButton
-                  color={theme === true ? "#191970" : "#FFDB58"}
+                  color={theme === true ? "#FFDB58" :"#191970" }
                   fsize="1.2rem"
                   onClick={() => dispatch(switchMode())}
                 >
-                  {theme === true ? <RiMoonFill /> : <RiSunFill />}
+                  {theme === true ?   <RiSunFill />:<RiMoonFill />}
                 </BorderLessButton>
               </div>
             </div>
@@ -63,9 +63,9 @@ const HeaderLayout = ({ children }) => {
             <div className="container-fluid">
               <Link href="/">
                 <div className="navbar-brand">
-                  <Text fsize="25px" w="500">
+                  <HeaderText fsize="25px" w="500">
                     Example
-                  </Text>
+                  </HeaderText>
                 </div>
               </Link>
               <div className="ms-auto">

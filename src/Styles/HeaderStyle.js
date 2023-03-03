@@ -1,18 +1,19 @@
 import styled from "@emotion/styled";
+import { ThemeStyled } from "./globalStyles";
 // #ffa000!important
 
-export const Header = styled.div`
+export const Header = styled(ThemeStyled)`
   box-shadow: 0px 0px 7px #ccc;
-  padding: 2rem 20rem 2rem 20rem;
+  padding: 2rem;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 99;
-  background-color: #ffa000 !important
-;
 `;
-export const ThemeWrapper = styled.div`
-  background-color: ${(props) => props.theme ?? "#fff"};
+export const HeaderText = styled.div`
+  color: #fff;
+  font-size: ${p=>p.fsize};
+  font-weight: ${p=>p.w};
 `;
 export const ChildDiv = styled.div`
   margin-top: 5rem;
@@ -28,6 +29,8 @@ export const BorderLessButton = styled.button`
   border: none;
   color: ${(props) => props.color};
   font-size: ${(props) => props.fsize};
+  text-align: left;
+  padding: 4px 8px 4px 8px;
 `;
 export const LogoutBtn = styled.button`
   border: 1px solid #ccc;
@@ -44,7 +47,7 @@ export const NavBtn = styled.button`
 export const Sidebar = styled.div`
   width: 30%;
   background-color: #fff !important;
-box-shadow: 0px 0px  7px #ccc ;
+  box-shadow: 0px 0px 7px #ccc;
   height: 100rem;
   position: fixed;
   left: ${(props) => props.sidebar};

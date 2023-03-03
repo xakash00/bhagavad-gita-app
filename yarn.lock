@@ -832,6 +832,11 @@ stylis@4.1.3:
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.1.3.tgz#fd2fbe79f5fed17c55269e16ed8da14c84d069f7"
   integrity sha512-GP6WDNWf+o403jrEp9c5jibKavrtLW+/qYGhFxFrG8maXhwTBI7gLLhiBb0o7uFccWN+EOS9aMO6cGHWAO07OA==
 
+super-duper-button@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/super-duper-button/-/super-duper-button-0.2.5.tgz#ecac61ba2fd30c0399e572e7e7815b2190a6aa18"
+  integrity sha512-0T9YxY2lvwBRrWrjQff9bP4Zc7UeVdtJ1IeuAZPJINTyvU3HIb+WQ4tdLw+h4H0L4HmICjhPtG0RWVSs5IjvgA==
+
 supports-color@^5.3.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.5.0.tgz#e2e69a44ac8772f78a1ec0b35b689df6530efc8f"

@@ -21,13 +21,13 @@ const Home = () => {
   );
 };
 export const getServerSideProps = wrapper.getServerSideProps((store) => async({req, res, ...etc}) => {
-  console.log(store);
-  // if (!store.getState().chapterData) {
-  //  store.dispatch(getChapterAction());
-  //   console.log("ending saga on server now...");
-  //  store.dispatch(END);
-  // } 
-  // await store.sagaTask.toPromise();
+
+  if (!store.getState().chapterData) {
+   store.dispatch(getChapterAction());
+    console.log("ending saga on server now...");
+   store.dispatch(END);
+  } 
+  await store.sagaTask.toPromise();
 
 });
 export default Home;
