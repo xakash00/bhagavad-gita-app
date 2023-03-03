@@ -31,6 +31,7 @@ export const BorderLessButton = styled.button`
   font-size: ${(props) => props.fsize};
   text-align: left;
   padding: 4px 8px 4px 8px;
+  font-weight: ${p=>p.w};
 `;
 export const LogoutBtn = styled.button`
   border: 1px solid #ccc;
